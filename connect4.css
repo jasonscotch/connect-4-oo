@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Asap", sans-serif;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+#board td {
+  width: 50px;
+  height: 50px;
+  border: solid 3px rgb(211, 192, 118);
+  border-radius: 50%;
+  background-color: cornsilk;
+
+}
+
+#center {
+  display: grid;
+  place-items: center; 
+  background-image: url('https://img.freepik.com/free-photo/wooden-wall-scratched-material-background-texture-concept_53876-30226.jpg?w=2000&t=st=1672898347~exp=1672898947~hmac=10ea213209232eec35ff9fa884b9e029c3bcb08b83af1cf884710f6b18df1f3b');
+  border-radius: 3%;
+  width: 600px;
+  padding: 15px;
+}
+
+table {
+  border-spacing: 6px;
+ 
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+  /* TODO: make into circles DONE*/
+  margin: 1px;
+  width: 95%;
+  height: 95%;
+  border-radius: 55%;
+  animation: bounce-in-top 1s cubic-bezier(0.550, 0.055, 0.675, 0.190) both; /* Need help figuring out z-index of the actual animation to place the piece behind the board for a more realistic look */
+  z-index: -5;
+}
+
+@keyframes bounce-in-top {
+  0% {
+    transform: translateY(-500px);
+    animation-timing-function: ease-in;
+    opacity: 0;
+    z-index: 5;
+  }
+  38% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    opacity: 1;
+    z-index: 5;
+  }
+  55% {
+    transform: translateY(-65px);
+    animation-timing-function: ease-in;
+    z-index: 5;
+  }
+  72% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    z-index: 5;
+  }
+  81% {
+    transform: translateY(-28px);
+    animation-timing-function: ease-in;
+    z-index: 5;
+  }
+  90% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    z-index: 5;
+  }
+  95% {
+    transform: translateY(-8px);
+    animation-timing-function: ease-in;
+    z-index: 5;
+
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+    z-index: 5;
+
+  }
+}
+
+
+/* TODO: make pieces red/blue,  depending on player 1/2 piece  DONE*/
+.piece.p1 {
+  background-color: #00c2cb;
+  z-index: -1;
+  /* position: absolute; */
+}
+
+.piece.p2 {
+  background-color: #42455a;
+  z-index: -1;
+  /* position: absolute; */
+}
+/* column-top is table row of clickable areas for each column */
+
+#column-top td {
+  border: dashed 2px goldenrod;
+}
+
+#column-top td:hover {
+  background-color: gold;
+}
+.noclick {
+  pointer-events: none;
+}
+
